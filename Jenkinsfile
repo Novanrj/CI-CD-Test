@@ -1,18 +1,18 @@
 pipeline {
     agent any
     stages {
+        stage('Check PATH Variable') {
+            steps {
+                sh 'echo $PATH'
+            }
+        }            
         stage('Build') {
             steps {
                 // Clone the repository and build the Maven project
                 git 'https://github.com/Novanrj/springboot-cicdpipeline.git'
                 sh 'mvn clean package'
             }
-        }
-        stage('Check PATH Variable') {
-            steps {
-                sh 'echo $PATH'
-            }
-        }        
+        }    
         stage('Test') {
             steps {
                 // Run tests (if applicable)
