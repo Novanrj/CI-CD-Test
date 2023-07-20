@@ -8,6 +8,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('Check PATH Variable') {
+            steps {
+                sh 'echo $PATH'
+            }
+        }        
         stage('Test') {
             steps {
                 // Run tests (if applicable)
