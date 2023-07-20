@@ -1,5 +1,9 @@
 pipeline {
     agent any
+ tools {
+        maven 'Maven 3.5.4'
+        jdk 'Java 17.0.4.1'
+    }
     stages {
         stage('Check PATH Variable') {
             steps {
