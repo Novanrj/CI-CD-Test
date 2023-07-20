@@ -1,24 +1,20 @@
 pipeline {
-   agent any
-   tools {
-        maven 'Maven 3.5.4'
-        jdk 'Java 17.0.4.1'
+    agent any
+    tools {
+        maven 'maven-3.5.4'
     }
     stages {
-        stage('Check PATH Variable') {
-            steps {
-                sh 'echo $PATH'
-            }
-        }            
         stage('Build') {
             steps {
                 // Clone the repository and build the Maven project
-                echo 'building the application'
+                git 'https://github.com/Novanrj/springboot-cicdpipeline.git'
+                sh 'mvn clean package'
             }
-        }    
+        }
         stage('Test') {
             steps {
-                echo 'testing the application'
+                // Run tests (if applicable)
+                sh 'mvn test'
             }
         }
     }
