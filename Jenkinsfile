@@ -25,5 +25,6 @@ pipeline {
                     sh 'docker build -t cicd-pipeline .'
             }
          }
-    }
+     }
+  }
 }
