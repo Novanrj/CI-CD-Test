@@ -23,7 +23,7 @@ pipeline {
             steps{
                 script{
                     sh 'docker build -t cicd-pipeline .'
-                }
             }
+         }
     }
 }
