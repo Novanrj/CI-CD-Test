@@ -1,12 +1,16 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
                 // Clone the repository and build the Maven project
                 git 'https://github.com/Novanrj/springboot-cicdpipeline.git'
-                sh 'mvn clean package'
+            }
+        }
+        stage('Build') {
+            steps {
                 echo 'maven build'
+                sh 'mvn clean package'
             }
         }
         stage('Test') {
