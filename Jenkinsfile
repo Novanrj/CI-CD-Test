@@ -7,6 +7,7 @@ pipeline {
                 git 'https://github.com/Novanrj/springboot-cicdpipeline.git'
                 sh 'mvn clean package'
                 echo 'testing poll'
+                echo 'testing poll2'
             }
         }
         stage('Test') {
